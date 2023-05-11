@@ -25,7 +25,7 @@ assume its existence.
 <meta content="draft-rsalz-tls-tls12-frozen-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.17.1
-    Python 3.11.2
+    Python 3.10.11
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.2
@@ -34,8 +34,8 @@ assume its existence.
     lxml 4.9.2
     pycountry 22.3.5
     PyYAML 6.0
-    requests 2.29.0
-    setuptools 67.7.2
+    requests 2.28.1
+    setuptools 65.6.0
     six 1.16.0
     wcwidth 0.2.6
 -->
@@ -670,7 +670,8 @@ sub, sup {
 .references dt {
   text-align: right;
   font-weight: bold;
-  min-width: 7em;
+  min-width: 10ch;
+  margin-right: 1.5ch;
 }
 .references dt:target::before {
   content: "⇒";
@@ -678,7 +679,7 @@ sub, sup {
   margin: 0 10px 0 -25px;
 }
 .references dd {
-  margin-left: 8em !important;
+  margin-left: 12ch !important;
   overflow: auto;
 }
 
@@ -1210,17 +1211,18 @@ assume its existence.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TLS 1.2 is in widespread use and can be configured such that it provides good
+<p id="section-1-1">TLS 1.2 <span>[<a href="#TLS12" class="cite xref">TLS12</a>]</span> is in widespread use and can be configured such that it provides good
 security properties. However, this protocol version suffers from several
 deficiencies:<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-1-2">
 <li id="section-1-2.1">While application layer traffic is always encrypted, most of the handshake
 messages are not encrypted. Therefore, the privacy provided is suboptimal.<a href="#section-1-2.1" class="pilcrow">¶</a>
 </li>
-        <li id="section-1-2.2">The list of cryptographic primitives specified for the protocol, both in-use 
-primitives and deprecated ones, includes several primitives that were a source for 
-vulnerabilities throughout the years, such as RSA key exchange, CBC cipher suites, 
-and problematic finite-field Diffie-Hellman group negotiation. See the <a href="#sec-considerations" class="auto internal xref">Section 5</a> Section for elaboration.<a href="#section-1-2.2" class="pilcrow">¶</a>
+        <li id="section-1-2.2">The list of cryptographic primitives specified for the protocol, both in-use
+primitives and deprecated ones, includes several primitives that were a source for
+vulnerabilities throughout the years, such as RSA key exchange, CBC cipher suites,
+and problematic finite-field Diffie-Hellman group negotiation.
+See <a href="#sec-considerations" class="auto internal xref">Section 5</a> for elaboration.<a href="#section-1-2.2" class="pilcrow">¶</a>
 </li>
         <li id="section-1-2.3">The original protocol, as-is, does not provide security (cite Renegotiation
 attack). Rather, some extensions are required to provide security.<a href="#section-1-2.3" class="pilcrow">¶</a>
