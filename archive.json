@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-05-11T01:07:14.759076+00:00",
+  "timestamp": "2023-05-14T01:10:42.685361+00:00",
   "repo": "richsalz/tls12-frozen",
   "labels": [
     {
@@ -56,24 +56,26 @@
       "id": "PR_kwDOJeA3Os5PyZHd",
       "title": "Edit suggestions for Rich's draft.",
       "url": "https://github.com/richsalz/tls12-frozen/pull/1",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "nimia",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Hi Rich, please let me know what you think? thanks :-)",
       "createdAt": "2023-05-04T14:55:45Z",
-      "updatedAt": "2023-05-04T16:38:11Z",
+      "updatedAt": "2023-05-11T14:47:45Z",
       "baseRepository": "richsalz/tls12-frozen",
       "baseRefName": "main",
       "baseRefOid": "3b1bf8af74d58f19ca8915a7e74062b1d2ff5719",
       "headRepository": "nimia/tls12-frozen",
       "headRefName": "main",
       "headRefOid": "e15ade60e3a217fbc1e1d610175c460ad84cb8e6",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-05-11T14:47:44Z",
+      "mergedAt": "2023-05-11T14:47:44Z",
+      "mergedBy": "nimia",
+      "mergeCommit": {
+        "oid": "38c32223d56ca7a1331693363e5f88b1ca7762c2"
+      },
       "comments": [
         {
           "author": "richsalz",
@@ -103,6 +105,53 @@
           "createdAt": "2023-05-04T16:38:11Z",
           "updatedAt": "2023-05-04T16:38:11Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOJeA3Os5QTd1q",
+      "title": "Reasons for freezing, Some Security Considerations",
+      "url": "https://github.com/richsalz/tls12-frozen/pull/2",
+      "state": "OPEN",
+      "author": "nimia",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-05-11T15:17:51Z",
+      "updatedAt": "2023-05-11T16:25:06Z",
+      "baseRepository": "richsalz/tls12-frozen",
+      "baseRefName": "main",
+      "baseRefOid": "38c32223d56ca7a1331693363e5f88b1ca7762c2",
+      "headRepository": "richsalz/tls12-frozen",
+      "headRefName": "nimrod_todo",
+      "headRefOid": "a7e43d0e28b1d9aabd14541634477a4e0c45d326",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOJeA3Os5U0VMJ",
+          "commit": {
+            "abbreviatedOid": "a7e43d0"
+          },
+          "author": "richsalz",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2023-05-11T16:25:05Z",
+          "updatedAt": "2023-05-11T16:25:06Z",
+          "comments": [
+            {
+              "originalPosition": 52,
+              "body": "I wonder if we really need all this justification. Given the list above it seems redundant. I know that I tend to terse, write-once, style.",
+              "createdAt": "2023-05-11T16:25:05Z",
+              "updatedAt": "2023-05-11T16:25:06Z"
+            }
+          ]
         }
       ]
     }
