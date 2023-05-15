@@ -1061,7 +1061,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Salz</td>
-<td class="center">Expires 12 November 2023</td>
+<td class="center">Expires 16 November 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1074,12 +1074,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-rsalz-tls-tls12-frozen-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-05-11" class="published">11 May 2023</time>
+<time datetime="2023-05-15" class="published">15 May 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-11-12">12 November 2023</time></dd>
+<dd class="expires"><time datetime="2023-11-16">16 November 2023</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1138,7 +1138,7 @@ assume its existence.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 12 November 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 November 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1236,27 +1236,8 @@ removing most cryptographic primitives considered dangerous. Importantly, TLS
 algorithms, new supported groups (formerly "named curves"),  etc., can be
 added without defining a new protocol. This document specifies that TLS 1.2
 is frozen: no new algorithms or extensions will be approved.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5">The reasons for freezing TLS 1.2 are as follows:<a href="#section-1-5" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-1-6">
-<li id="section-1-6.1">Specifying and deploying new extension points requires resources, both in WG
-discussions and in deployment efforts. These resources are better spent on
-TLS 1.3.<a href="#section-1-6.1" class="pilcrow">¶</a>
-</li>
-        <li id="section-1-6.2">For deployments that require recent extension points, it is best to deploy
-TLS 1.3. This not only allows using these extension points, but also improves
-security and efficiency in general. (On the other hand, continuing to extend TLS
-1.2 would have created a slight incentive to avoid upgrading to TLS 1.3.)<a href="#section-1-6.2" class="pilcrow">¶</a>
-</li>
-        <li id="section-1-6.3">TLS 1.2 will eventually be deprecated. Experience shows that deprecating
-cryptographic primitives and protocols can be laborious and require a long
-timeline (cite David Benjamin's RWC talk, Ryan Sleevi's SHA1 history).
-Among other advantages, the decision to freeze TLS 1.2 clearly communicates to
-vendors and operators that they should upgrade to TLS 1.3, and hopefully this
-will allow for an easier deprecation story when TLS 1.2 is eventually deprecated.<a href="#section-1-6.3" class="pilcrow">¶</a>
-</li>
-      </ol>
-<p id="section-1-7">Further, TLS 1.3 use is widespread, and new protocols should require and
-assume its existence.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<p id="section-1-5">Further, TLS 1.3 use is widespread, and new protocols should require and
+assume its existence.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1319,21 +1300,36 @@ that have historically hindered its security. The purpose of this section is to
 briefly survey several such prominent problems that have affected the protocol.
 It should be noted, however, that TLS 1.2 can be configured securely; it is
 merely much more difficult to configure it securely as opposed to using its
-modern successor, TLS 1.3. Refer to Section <a href="#sec-reasons" class="auto internal xref">Section 1</a> for the reasons for
-the decision to freeze the protocol under these circumstances.<a href="#section-5-1" class="pilcrow">¶</a></p>
+modern successor, TLS 1.3.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">Firstly, the TLS 1.2 protocol, without any extension points, is vulnerable to
 the renegotiation attack and the Triple Handshake attack. Broadly, these attacks
 exploit the protocol's support for renegotiation in order to inject a prefix
 chosen by the attacker into the plaintext stream. This is usually a devastating
 threat in practice, that allows e.g. obtaining secret cookies in a web setting.
-Refer to <span>[<a href="#RENEG1" class="cite xref">RENEG1</a>]</span>, <span>[<a href="#RENEG2" class="cite xref">RENEG2</a>]</span>, <span>[<a href="#TRIPLESHAKE" class="cite xref">TRIPLESHAKE</a>]</span> for elaboration.<a href="#section-5-2" class="pilcrow">¶</a></p>
-<p id="section-5-3">(TODO Nimrod) I suggest giving the following references as security considerations:
-- RSA key exchange and DH: Refer to draft-obsolete-kex.
-- CBC cipher suites: I'll cite papers.
-- Renegotiation: Refer to RFC 5746.
-- I can add a paragraph of further prominent attacks in TLS history, explain
-  that most of these are prevented in TLS 1.3.
-Please let me know if you'd like me to write that?<a href="#section-5-3" class="pilcrow">¶</a></p>
+Refer to <span>[<a href="#RENEG1" class="cite xref">RENEG1</a>]</span>, <span>[<a href="#RENEG2" class="cite xref">RENEG2</a>]</span>, <span>[<a href="#TRIPLESHAKE" class="cite xref">TRIPLESHAKE</a>]</span> for elaboration. In light of
+the above problems, <span>[<a href="#RFC5746" class="cite xref">RFC5746</a>]</span> specifies an extension that prevents this
+category of attacks. To securely deploy TLS 1.2, either renegotiation must be
+disabled entirely, or this extension must be present. Additionally, clients must
+not allow servers to renegotiate the certificate during a connection.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">Secondly, the original key exchange methods specified for the protocol, namely
+RSA key exchange and finite field Diffie-Hellman, suffer from several
+weaknesses. As before, to securely deploy the protocol, these key exchange
+methods must be disabled.
+Refer to draft-obsolete-kex for elaboration (TODO Nimrod I guess we will anyway
+wait for WGLC for draft-obsolete-kex, so no sense to temporarily refer to the
+draft.)<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-4">Thirdly, symmetric ciphers which were widely-used in the protocol, namely RC4
+and CBC cipher suites, suffer from several weaknesses. RC4 suffers from
+exploitable biases in its key stream; see <span>[<a href="#RFC7465" class="cite xref">RFC7465</a>]</span>. CBC cipher suites have
+been a source of vulnerabilities throughout the years. A straightforward
+implementation of these cipher suites inherently suffers from the Lucky13 timing
+attack (TODO Nimrod cite). The first attempt to implement the cipher suites in
+constant time introduced an even more severe vulnerability (TODO Nimrod cite
+Juraj's paper). There have been further similar vulnerabilities throughout the
+years exploiting CBC cipher suites; refer to e.g. (TODO Nimrod cite the CBC
+scanning paper) for an example and a survey of similar works (Section 3.4).<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-5">And lastly, historically the protocol was affected by several other attacks that
+TLS 1.3 is immune to: BEAST, Logjam, FREAK, and SLOTH (TODO Nimrod cite all).<a href="#section-5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana">
@@ -1373,6 +1369,14 @@ except for the following:<a href="#section-6-1" class="pilcrow">¶</a></p>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC5746">[RFC5746]</dt>
+        <dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Ray, M.</span>, <span class="refAuthor">Dispensa, S.</span>, and <span class="refAuthor">N. Oskov</span>, <span class="refTitle">"Transport Layer Security (TLS) Renegotiation Indication Extension"</span>, <span class="seriesInfo">RFC 5746</span>, <span class="seriesInfo">DOI 10.17487/RFC5746</span>, <time datetime="2010-02" class="refDate">February 2010</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5746">https://www.rfc-editor.org/rfc/rfc5746</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7465">[RFC7465]</dt>
+        <dd>
+<span class="refAuthor">Popov, A.</span>, <span class="refTitle">"Prohibiting RC4 Cipher Suites"</span>, <span class="seriesInfo">RFC 7465</span>, <span class="seriesInfo">DOI 10.17487/RFC7465</span>, <time datetime="2015-02" class="refDate">February 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7465">https://www.rfc-editor.org/rfc/rfc7465</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
         <dd>
