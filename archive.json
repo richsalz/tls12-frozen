@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-05-14T01:10:42.685361+00:00",
+  "timestamp": "2023-05-16T01:07:49.652387+00:00",
   "repo": "richsalz/tls12-frozen",
   "labels": [
     {
@@ -113,21 +113,21 @@
       "id": "PR_kwDOJeA3Os5QTd1q",
       "title": "Reasons for freezing, Some Security Considerations",
       "url": "https://github.com/richsalz/tls12-frozen/pull/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "nimia",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-05-11T15:17:51Z",
-      "updatedAt": "2023-05-11T16:25:06Z",
+      "updatedAt": "2023-05-15T15:20:15Z",
       "baseRepository": "richsalz/tls12-frozen",
       "baseRefName": "main",
       "baseRefOid": "38c32223d56ca7a1331693363e5f88b1ca7762c2",
       "headRepository": "richsalz/tls12-frozen",
       "headRefName": "nimrod_todo",
-      "headRefOid": "a7e43d0e28b1d9aabd14541634477a4e0c45d326",
-      "closedAt": null,
+      "headRefOid": "147c2b398bf8d3851b288f3504a8db30d8072238",
+      "closedAt": "2023-05-15T15:20:15Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -152,6 +152,19 @@
               "updatedAt": "2023-05-11T16:25:06Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOJeA3Os5VCvmJ",
+          "commit": {
+            "abbreviatedOid": "d0f40ee"
+          },
+          "author": "richsalz",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "Consider renaming the bulk of the security considerations 'deployment advice for TLS 1.2'  But either way, approved.",
+          "createdAt": "2023-05-15T15:07:04Z",
+          "updatedAt": "2023-05-15T15:07:04Z",
+          "comments": []
         }
       ]
     }
