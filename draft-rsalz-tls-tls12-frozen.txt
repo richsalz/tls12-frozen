@@ -4,8 +4,8 @@
 
 Transport Layer Security                                         R. Salz
 Internet-Draft                                       Akamai Technologies
-Intended status: Informational                               15 May 2023
-Expires: 16 November 2023
+Intended status: Informational                                 N. Aviram
+Expires: 18 November 2023                                    17 May 2023
 
 
                            TLS 1.2 is Frozen
@@ -58,7 +58,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 November 2023.
+   This Internet-Draft will expire on 18 November 2023.
 
 Copyright Notice
 
@@ -86,7 +86,7 @@ Table of Contents
      7.1.  Normative References
      7.2.  Informative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -190,26 +190,25 @@ Table of Contents
    protocol, namely RSA key exchange and finite field Diffie-Hellman,
    suffer from several weaknesses.  As before, to securely deploy the
    protocol, these key exchange methods must be disabled.  Refer to
-   draft-obsolete-kex for elaboration (TODO Nimrod I guess we will
-   anyway wait for WGLC for draft-obsolete-kex, so no sense to
-   temporarily refer to the draft.)
+   draft-obsolete-kex for elaboration (TODO I guess we will anyway wait
+   for WGLC for draft-obsolete-kex, so no sense to temporarily refer to
+   the draft.)
 
    Thirdly, symmetric ciphers which were widely-used in the protocol,
    namely RC4 and CBC cipher suites, suffer from several weaknesses.
    RC4 suffers from exploitable biases in its key stream; see [RFC7465].
    CBC cipher suites have been a source of vulnerabilities throughout
    the years.  A straightforward implementation of these cipher suites
-   inherently suffers from the Lucky13 timing attack (TODO Nimrod cite).
-   The first attempt to implement the cipher suites in constant time
-   introduced an even more severe vulnerability (TODO Nimrod cite
-   Juraj's paper).  There have been further similar vulnerabilities
-   throughout the years exploiting CBC cipher suites; refer to e.g.
-   (TODO Nimrod cite the CBC scanning paper) for an example and a survey
-   of similar works (Section 3.4).
+   inherently suffers from the Lucky13 timing attack [LUCKY13].  The
+   first attempt to implement the cipher suites in constant time
+   introduced an even more severe vulnerability.  There have been
+   further similar vulnerabilities throughout the years exploiting CBC
+   cipher suites; refer to e.g.  [CBCSCANNING] for an example and a
+   survey of similar works.
 
    And lastly, historically the protocol was affected by several other
-   attacks that TLS 1.3 is immune to: BEAST, Logjam, FREAK, and SLOTH
-   (TODO Nimrod cite all).
+   attacks that TLS 1.3 is immune to: BEAST [BEAST], Logjam [WEAKDH],
+   FREAK [FREAK], and SLOTH [SLOTH].
 
 6.  IANA Considerations
 
@@ -275,10 +274,37 @@ Table of Contents
 
 7.2.  Informative References
 
+   [BEAST]    Duong, T. and J. Rizzo, "Here come the xor ninjas", n.d.,
+              <http://www.hpcc.ecs.soton.ac.uk/dan/talks/bullrun/
+              Beast.pdf>.
+
+   [CBCSCANNING]
+              Merget, R., Somorovsky, J., Aviram, N., Young, C.,
+              Fliegenschmidt, J., Schwenk, J., and Y. Shavitt, "Scalable
+              Scanning and Automatic Classification of TLS Padding
+              Oracle Vulnerabilities", n.d.,
+              <https://www.usenix.org/system/files/sec19-merget.pdf>.
+
    [CFRGSLIDES]
               McGrew, D., "Post Quantum Secure Cryptography Discussion",
               n.d., <https://www.ietf.org/proceedings/95/slides/slides-
               95-cfrg-4.pdf>.
+
+   [FREAK]    Beurdouche, B., Bhargavan, K., Delignat-Lavaud, A.,
+              Fournet, C., Kohlweiss, M., Pironti, A., Strub, P.-Y., and
+              J. K. Zinzindohoue, "A messy state of the union: Taming
+              the composite state machines of TLS", n.d.,
+              <https://inria.hal.science/hal-01114250/file/messy-state-
+              of-the-union-oakland15.pdf>.
+
+   [LUCKY13]  Al Fardan, N. J. and K. G. Paterson, "Lucky Thirteen:
+              Breaking the TLS and DTLS record protocols", n.d.,
+              <http://www.isg.rhul.ac.uk/tls/TLStiming.pdf>.
+
+   [LUCKY13FIX]
+              Somorovsky, J., "Systematic fuzzing and testing of TLS
+              libraries", n.d., <https://nds.rub.de/media/nds/
+              veroeffentlichungen/2016/10/19/tls-attacker-ccs16.pdf>.
 
    [PQC]      "Post=Quantum Cryptography", January 2017,
               <https://csrc.nist.gov/projects/post-quantum-
@@ -297,6 +323,11 @@ Table of Contents
               <https://web.archive.org/web/20091228061844/
               http://extendedsubset.com/?p=8>.
 
+   [SLOTH]    Bhargavan, K. and G. Leurent, "Transcript collision
+              attacks: Breaking authentication in TLS, IKE, and SSH",
+              n.d., <https://inria.hal.science/hal-01244855/file/
+              SLOTH_NDSS16.pdf>.
+
    [TLSWG]    "Transport Layer Security", n.d.,
               <https://datatracker.ietf.org/wg/tls/about/>.
 
@@ -305,12 +336,23 @@ Table of Contents
               Authentication over TLS", n.d.,
               <https://mitls.org/pages/attacks/3SHAKE>.
 
+   [WEAKDH]   Adrian, D., Bhargavan, K., Durumeric, Z., Gaudry, P.,
+              Green, M., Halderman, J. A., Heninger, N., Springall, D.,
+              Thomé, E., Valenta, L., and B. VanderSloot, "Imperfect
+              forward secrecy: How Diffie-Hellman fails in practice",
+              n.d.,
+              <https://dl.acm.org/doi/pdf/10.1145/2810103.2813707>.
+
 Acknowledgments
 
    None yet.
 
-Author's Address
+Authors' Addresses
 
    Rich Salz
    Akamai Technologies
    Email: rsalz@akamai.com
+
+
+   Nimrod Aviram
+   Email: nimrod.aviram@gmail.com

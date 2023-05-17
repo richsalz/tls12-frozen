@@ -6,6 +6,7 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>TLS 1.2 is Frozen</title>
 <meta content="Rich Salz" name="author">
+<meta content="Nimrod Aviram" name="author">
 <meta content='
        TLS 1.2 is in widespread use and can be configured such that it provides good
 security properties. TLS 1.3 is also in
@@ -1060,8 +1061,8 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">May 2023</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Salz</td>
-<td class="center">Expires 16 November 2023</td>
+<td class="left">Salz &amp; Aviram</td>
+<td class="center">Expires 18 November 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1074,17 +1075,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-rsalz-tls-tls12-frozen-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-05-15" class="published">15 May 2023</time>
+<time datetime="2023-05-17" class="published">17 May 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-11-16">16 November 2023</time></dd>
-<dt class="label-authors">Author:</dt>
+<dd class="expires"><time datetime="2023-11-18">18 November 2023</time></dd>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">R. Salz</div>
 <div class="org">Akamai Technologies</div>
+</div>
+<div class="author">
+      <div class="author-name">N. Aviram</div>
 </div>
 </dd>
 </dl>
@@ -1138,7 +1142,7 @@ assume its existence.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 November 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 November 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1200,7 +1204,7 @@ assume its existence.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.8.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.9.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1317,7 +1321,7 @@ not allow servers to renegotiate the certificate during a connection.<a href="#s
 RSA key exchange and finite field Diffie-Hellman, suffer from several
 weaknesses. As before, to securely deploy the protocol, these key exchange
 methods must be disabled.
-Refer to draft-obsolete-kex for elaboration (TODO Nimrod I guess we will anyway
+Refer to draft-obsolete-kex for elaboration (TODO I guess we will anyway
 wait for WGLC for draft-obsolete-kex, so no sense to temporarily refer to the
 draft.)<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">Thirdly, symmetric ciphers which were widely-used in the protocol, namely RC4
@@ -1325,13 +1329,14 @@ and CBC cipher suites, suffer from several weaknesses. RC4 suffers from
 exploitable biases in its key stream; see <span>[<a href="#RFC7465" class="cite xref">RFC7465</a>]</span>. CBC cipher suites have
 been a source of vulnerabilities throughout the years. A straightforward
 implementation of these cipher suites inherently suffers from the Lucky13 timing
-attack (TODO Nimrod cite). The first attempt to implement the cipher suites in
-constant time introduced an even more severe vulnerability (TODO Nimrod cite
-Juraj's paper). There have been further similar vulnerabilities throughout the
-years exploiting CBC cipher suites; refer to e.g. (TODO Nimrod cite the CBC
-scanning paper) for an example and a survey of similar works (Section 3.4).<a href="#section-5-4" class="pilcrow">¶</a></p>
+attack <span>[<a href="#LUCKY13" class="cite xref">LUCKY13</a>]</span>. The first attempt to implement the cipher suites in
+constant time introduced an even more severe vulnerability.
+There have been further similar vulnerabilities throughout the
+years exploiting CBC cipher suites; refer to e.g. <span>[<a href="#CBCSCANNING" class="cite xref">CBCSCANNING</a>]</span>
+for an example and a survey of similar works.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">And lastly, historically the protocol was affected by several other attacks that
-TLS 1.3 is immune to: BEAST, Logjam, FREAK, and SLOTH (TODO Nimrod cite all).<a href="#section-5-5" class="pilcrow">¶</a></p>
+TLS 1.3 is immune to:
+BEAST <span>[<a href="#BEAST" class="cite xref">BEAST</a>]</span>, Logjam <span>[<a href="#WEAKDH" class="cite xref">WEAKDH</a>]</span>, FREAK <span>[<a href="#FREAK" class="cite xref">FREAK</a>]</span>, and SLOTH <span>[<a href="#SLOTH" class="cite xref">SLOTH</a>]</span>.<a href="#section-5-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana">
@@ -1407,9 +1412,29 @@ except for the following:<a href="#section-6-1" class="pilcrow">¶</a></p>
 <a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="BEAST">[BEAST]</dt>
+        <dd>
+<span class="refAuthor">Duong, T.</span> and <span class="refAuthor">J. Rizzo</span>, <span class="refTitle">"Here come the xor ninjas"</span>, <span>n.d.</span>, <span>&lt;<a href="http://www.hpcc.ecs.soton.ac.uk/dan/talks/bullrun/Beast.pdf">http://www.hpcc.ecs.soton.ac.uk/dan/talks/bullrun/Beast.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="CBCSCANNING">[CBCSCANNING]</dt>
+        <dd>
+<span class="refAuthor">Merget, R.</span>, <span class="refAuthor">Somorovsky, J.</span>, <span class="refAuthor">Aviram, N.</span>, <span class="refAuthor">Young, C.</span>, <span class="refAuthor">Fliegenschmidt, J.</span>, <span class="refAuthor">Schwenk, J.</span>, and <span class="refAuthor">Y. Shavitt</span>, <span class="refTitle">"Scalable Scanning and Automatic Classification of TLS Padding Oracle Vulnerabilities"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.usenix.org/system/files/sec19-merget.pdf">https://www.usenix.org/system/files/sec19-merget.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="CFRGSLIDES">[CFRGSLIDES]</dt>
         <dd>
 <span class="refAuthor">McGrew, D.</span>, <span class="refTitle">"Post Quantum Secure Cryptography Discussion"</span>, <span>n.d.</span>, <span>&lt;<a href="https://www.ietf.org/proceedings/95/slides/slides-95-cfrg-4.pdf">https://www.ietf.org/proceedings/95/slides/slides-95-cfrg-4.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="FREAK">[FREAK]</dt>
+        <dd>
+<span class="refAuthor">Beurdouche, B.</span>, <span class="refAuthor">Bhargavan, K.</span>, <span class="refAuthor">Delignat-Lavaud, A.</span>, <span class="refAuthor">Fournet, C.</span>, <span class="refAuthor">Kohlweiss, M.</span>, <span class="refAuthor">Pironti, A.</span>, <span class="refAuthor">Strub, P.-Y.</span>, and <span class="refAuthor">J. K. Zinzindohoue</span>, <span class="refTitle">"A messy state of the union: Taming the composite state machines of TLS"</span>, <span>n.d.</span>, <span>&lt;<a href="https://inria.hal.science/hal-01114250/file/messy-state-of-the-union-oakland15.pdf">https://inria.hal.science/hal-01114250/file/messy-state-of-the-union-oakland15.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LUCKY13">[LUCKY13]</dt>
+        <dd>
+<span class="refAuthor">Al Fardan, N. J.</span> and <span class="refAuthor">K. G. Paterson</span>, <span class="refTitle">"Lucky Thirteen: Breaking the TLS and DTLS record protocols"</span>, <span>n.d.</span>, <span>&lt;<a href="http://www.isg.rhul.ac.uk/tls/TLStiming.pdf">http://www.isg.rhul.ac.uk/tls/TLStiming.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="LUCKY13FIX">[LUCKY13FIX]</dt>
+        <dd>
+<span class="refAuthor">Somorovsky, J.</span>, <span class="refTitle">"Systematic fuzzing and testing of TLS libraries"</span>, <span>n.d.</span>, <span>&lt;<a href="https://nds.rub.de/media/nds/veroeffentlichungen/2016/10/19/tls-attacker-ccs16.pdf">https://nds.rub.de/media/nds/veroeffentlichungen/2016/10/19/tls-attacker-ccs16.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="PQC">[PQC]</dt>
         <dd>
@@ -1427,13 +1452,21 @@ except for the following:<a href="#section-6-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Ray, M.</span>, <span class="refTitle">"Authentication Gap in TLS Renegotiation"</span>, <span>n.d.</span>, <span>&lt;<a href="https://web.archive.org/web/20091228061844/http://extendedsubset.com/?p=8">https://web.archive.org/web/20091228061844/http://extendedsubset.com/?p=8</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="SLOTH">[SLOTH]</dt>
+        <dd>
+<span class="refAuthor">Bhargavan, K.</span> and <span class="refAuthor">G. Leurent</span>, <span class="refTitle">"Transcript collision attacks: Breaking authentication in TLS, IKE, and SSH"</span>, <span>n.d.</span>, <span>&lt;<a href="https://inria.hal.science/hal-01244855/file/SLOTH_NDSS16.pdf">https://inria.hal.science/hal-01244855/file/SLOTH_NDSS16.pdf</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="TLSWG">[TLSWG]</dt>
         <dd>
 <span class="refTitle">"Transport Layer Security"</span>, <span>n.d.</span>, <span>&lt;<a href="https://datatracker.ietf.org/wg/tls/about/">https://datatracker.ietf.org/wg/tls/about/</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TRIPLESHAKE">[TRIPLESHAKE]</dt>
-      <dd>
+        <dd>
 <span class="refTitle">"Triple Handshakes Considered Harmful Breaking and Fixing Authentication over TLS"</span>, <span>n.d.</span>, <span>&lt;<a href="https://mitls.org/pages/attacks/3SHAKE">https://mitls.org/pages/attacks/3SHAKE</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="WEAKDH">[WEAKDH]</dt>
+      <dd>
+<span class="refAuthor">Adrian, D.</span>, <span class="refAuthor">Bhargavan, K.</span>, <span class="refAuthor">Durumeric, Z.</span>, <span class="refAuthor">Gaudry, P.</span>, <span class="refAuthor">Green, M.</span>, <span class="refAuthor">Halderman, J. A.</span>, <span class="refAuthor">Heninger, N.</span>, <span class="refAuthor">Springall, D.</span>, <span class="refAuthor">Thomé, E.</span>, <span class="refAuthor">Valenta, L.</span>, and <span class="refAuthor">B. VanderSloot</span>, <span class="refTitle">"Imperfect forward secrecy: How Diffie-Hellman fails in practice"</span>, <span>n.d.</span>, <span>&lt;<a href="https://dl.acm.org/doi/pdf/10.1145/2810103.2813707">https://dl.acm.org/doi/pdf/10.1145/2810103.2813707</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1448,8 +1481,8 @@ except for the following:<a href="#section-6-1" class="pilcrow">¶</a></p>
 </div>
 <div id="authors-addresses">
 <section id="appendix-B">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Rich Salz</span></div>
@@ -1457,6 +1490,13 @@ except for the following:<a href="#section-6-1" class="pilcrow">¶</a></p>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:rsalz@akamai.com" class="email">rsalz@akamai.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Nimrod Aviram</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:nimrod.aviram@gmail.com" class="email">nimrod.aviram@gmail.com</a>
 </div>
 </address>
 </section>
